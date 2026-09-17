@@ -1,0 +1,154 @@
+:root {
+  --bg: #05070d;
+  --panel: #0a0f1c;
+  --panel-border: #1b2740;
+  --cyan: #22d3ee;
+  --text: #e2e8f0;
+  --muted: #8291a8;
+  --ok: #22c55e;
+  --danger: #ef4444;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, "Segoe UI", "Noto Sans TC", sans-serif;
+  font-size: 15px;
+}
+
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.app-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.app-header h1 { font-size: 20px; margin: 0; color: var(--cyan); }
+.header-meta { display: flex; align-items: center; gap: 10px; }
+.updated-at { font-size: 12px; color: var(--muted); }
+
+.btn {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.btn:hover { border-color: var(--cyan); color: var(--cyan); }
+.btn.ghost { background: transparent; }
+
+.search-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.search-bar input {
+  flex: 1;
+  min-width: 200px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+.search-bar input:focus { outline: none; border-color: var(--cyan); }
+
+.chip-group { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.chip {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.chip.active { border-color: var(--cyan); color: var(--cyan); background: rgba(34,211,238,0.08); }
+
+.view-title { font-size: 15px; color: var(--muted); margin: 4px 0 12px; }
+
+.state-msg {
+  text-align: center;
+  color: var(--muted);
+  padding: 40px 0;
+  font-size: 14px;
+}
+.state-msg.error { color: var(--danger); }
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+.project-card {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
+  padding: 14px;
+  cursor: pointer;
+  text-align: left;
+}
+.project-card:hover { border-color: var(--cyan); }
+.project-card .p-name { font-weight: 700; font-size: 14px; word-break: break-all; }
+.project-card .p-count { color: var(--muted); font-size: 12px; margin-top: 6px; }
+.project-card .p-warn { color: var(--danger); font-size: 12px; margin-top: 4px; }
+
+.table-wrap { overflow-x: auto; }
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th, .data-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--panel-border);
+  text-align: left;
+  font-size: 13px;
+}
+.data-table th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+.data-table td.num, .data-table th.num { text-align: right; }
+.data-table td.num.over-quota { color: var(--danger); font-weight: 700; }
+.data-table td.num.stock-positive { color: var(--ok); font-weight: 700; }
+.data-table td.num.stock-zero { color: var(--muted); }
+
+.status-tag { padding: 2px 8px; border-radius: 999px; font-size: 12px; }
+.status-tag.in_use { color: var(--cyan); }
+.status-tag.closed { color: var(--muted); }
+.status-tag.abnormal { color: var(--danger); }
+
+@media (max-width: 640px) {
+  .data-table thead { display: none; }
+  .data-table, .data-table tbody, .data-table tr, .data-table td { display: block; width: 100%; }
+  .data-table tr {
+    border: 1px solid var(--panel-border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    background: var(--panel);
+  }
+  .data-table td {
+    border: none;
+    padding: 4px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .data-table td.num { text-align: right; }
+  .data-table td::before {
+    content: attr(data-label);
+    color: var(--muted);
+    font-size: 11px;
+    flex-shrink: 0;
+  }
+}

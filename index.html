@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>料件庫存查詢</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>料件庫存查詢</h1>
+      <div class="header-meta">
+        <span id="updatedAt" class="updated-at">尚未載入</span>
+        <button type="button" id="btnRefresh" class="btn">⟳ 重新整理</button>
+      </div>
+    </header>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="搜尋品號／品名／專案號…" autocomplete="off" />
+      <button type="button" id="btnBack" class="btn ghost" hidden>← 返回專案列表</button>
+    </div>
+
+    <div class="chip-group" id="statusChips" hidden>
+      <button type="button" class="chip active" data-status="all">全部</button>
+      <button type="button" class="chip" data-status="in_use">使用中</button>
+      <button type="button" class="chip" data-status="closed">已結案</button>
+      <button type="button" class="chip" data-status="abnormal">異常</button>
+    </div>
+
+    <div id="loadingState" class="state-msg">讀取中…</div>
+    <div id="errorState" class="state-msg error" hidden></div>
+
+    <section id="projectListView" hidden>
+      <h2 class="view-title">選擇專案</h2>
+      <div id="projectGrid" class="project-grid"></div>
+    </section>
+
+    <section id="tableView" hidden>
+      <h2 class="view-title" id="tableTitle"></h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>專案號</th>
+              <th>狀態</th>
+              <th>品號</th>
+              <th>品名</th>
+              <th class="num">庫存數量</th>
+              <th class="num">已領料</th>
+              <th class="num">總進料數</th>
+              <th>備註</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+      <div id="emptyState" class="state-msg" hidden>沒有符合條件的資料</div>
+    </section>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
