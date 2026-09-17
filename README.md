@@ -2,7 +2,7 @@
 
 純前端、唯讀的料件庫存查詢頁面，資料來源是 Google Sheets「發布到網路」的 CSV，用 GitHub Pages host。這是 [material-inventory-gui](https://github.com/fooox999/material-inventory-gui) 的唯讀對外版本，給不需要編輯權限、只需要查詢的人用。
 
-線上網址：https://fooox999.github.io/material-inventory-lookup/
+（上線網址不公開列在這裡，內部知道連結的人使用即可，避免公司料件資料被不相干的人隨意看到。）
 
 ## 功能
 
