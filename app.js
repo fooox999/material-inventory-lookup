@@ -53,7 +53,11 @@ async function loadData() {
           status: STATUS_LABEL[r.status] ? r.status : 'in_use',
           part_no: r.part_no || '',
           name: r.name || '',
-          stock_qty: Number(r.stock_qty) || 0,
+          // 空白儲存格代表這筆還沒被領用/使用/進料動過，沿用桌面版的邏輯：
+          // 視為「目前庫存＝已領料」，而不是誤判成 0
+          stock_qty: (r.stock_qty !== undefined && r.stock_qty !== null && String(r.stock_qty).trim() !== '')
+            ? (Number(r.stock_qty) || 0)
+            : (Number(r.drawn_total) || 0),
           drawn_total: Number(r.drawn_total) || 0,
           total_in: Number(r.total_in) || 0,
           remarks: r.remarks || '',
