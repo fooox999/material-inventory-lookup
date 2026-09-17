@@ -120,6 +120,7 @@ html, body {
 .data-table td.num, .data-table th.num { text-align: right; }
 .data-table td.num.over-quota { color: var(--danger); font-weight: 700; }
 .data-table td.num.stock-positive { color: var(--ok); font-weight: 700; }
+.data-table.single-project .col-project { display: none; }
 .data-table td.num.stock-zero { color: var(--muted); }
 
 .status-tag { padding: 2px 8px; border-radius: 999px; font-size: 12px; }

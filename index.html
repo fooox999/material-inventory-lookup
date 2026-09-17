@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>料件庫存查詢</title>
-<link rel="stylesheet" href="style.css?v=2" />
+<link rel="stylesheet" href="style.css?v=3" />
 </head>
 <body>
   <div class="app">
@@ -39,10 +39,10 @@
     <section id="tableView" hidden>
       <h2 class="view-title" id="tableTitle"></h2>
       <div class="table-wrap">
-        <table class="data-table">
+        <table class="data-table" id="dataTable">
           <thead>
             <tr>
-              <th>專案號</th>
+              <th class="col-project">專案號</th>
               <th>狀態</th>
               <th>品號</th>
               <th>品名</th>
@@ -61,6 +61,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
   <script src="config.js?v=2"></script>
-  <script src="app.js?v=2"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>

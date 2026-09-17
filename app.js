@@ -21,6 +21,7 @@ const els = {
   projectGrid: el('projectGrid'),
   tableView: el('tableView'),
   tableTitle: el('tableTitle'),
+  dataTable: el('dataTable'),
   tableBody: el('tableBody'),
   emptyState: el('emptyState'),
 };
@@ -146,12 +147,13 @@ function renderTableView() {
   els.tableTitle.textContent = state.currentProject
     ? `專案：${state.currentProject}`
     : '跨專案搜尋結果';
+  els.dataTable.classList.toggle('single-project', !!state.currentProject);
 
   const rows = getFilteredRows();
   els.emptyState.hidden = rows.length > 0;
   els.tableBody.innerHTML = rows.map((r) => `
     <tr>
-      <td data-label="專案號">${escapeHtml(r.project_no)}</td>
+      <td data-label="專案號" class="col-project">${escapeHtml(r.project_no)}</td>
       <td data-label="狀態"><span class="status-tag ${r.status}">${STATUS_LABEL[r.status]}</span></td>
       <td data-label="品號">${escapeHtml(r.part_no)}</td>
       <td data-label="品名">${escapeHtml(r.name)}</td>
