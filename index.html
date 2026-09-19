@@ -4,10 +4,20 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>料件庫存查詢</title>
-<link rel="stylesheet" href="style.css?v=3" />
+<link rel="stylesheet" href="style.css?v=4" />
 </head>
 <body>
-  <div class="app">
+  <div id="lockScreen" class="lock-screen" hidden>
+    <form id="lockForm" class="lock-box">
+      <h1>料件庫存查詢</h1>
+      <p class="lock-hint">請輸入密碼</p>
+      <input type="password" id="lockPassword" placeholder="密碼" autocomplete="off" autofocus />
+      <button type="submit" class="btn">進入</button>
+      <p id="lockError" class="lock-error" hidden>密碼錯誤，請再試一次</p>
+    </form>
+  </div>
+
+  <div id="appRoot" class="app" hidden>
     <header class="app-header">
       <h1>料件庫存查詢</h1>
       <div class="header-meta">
@@ -60,7 +70,7 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-  <script src="config.js?v=2"></script>
-  <script src="app.js?v=3"></script>
+  <script src="config.js?v=3"></script>
+  <script src="lock.js?v=1"></script>
 </body>
 </html>
