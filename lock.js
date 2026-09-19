@@ -12,7 +12,7 @@ async function sha256Hex(text) {
 
 function loadAppScript() {
   const script = document.createElement('script');
-  script.src = 'app.js?v=3';
+  script.src = 'app.js?v=4';
   document.body.appendChild(script);
 }
 
